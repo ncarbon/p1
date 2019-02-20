@@ -1,0 +1,108 @@
+.Dd 2/18/19               \" DATE
+.Dt qbank 5      \" Program name and manual section number
+.Os Linux
+.Sh NAME                 \" Section Header - required - don't modify
+.Nm qbank
+.\" The following lines are read in generating the apropos(man -k) database. Use only key
+.\" words here as the database is built based on the words here and in the .ND line.
+.Sh SYNOPSIS             \" Section Header - required - don't modify
+.Nm 
+- File used as a persistent storage for qserver
+.br
+
+.Sh DESCRIPTION          \" Section Header - required - don't modify
+qbank.txt is a text file that contains the questions stored on the server for qserver.
+Each time the server is started, the contents of qbank.txt are read and parsed into a 
+vector containing the questions. This allows for easier managing and manipulation of the data.
+Upon terminating the server, the qbank.txt file is updated with a new or different content by writing to it. 
+.br
+.br
+The first line of qbank.txt always contains the last number assigned as an id for a question.
+This is kept updated as new questions are added or questions get deleted.
+.br
+.br
+After the first line each question is separated by a line containing a '%%'.
+.br
+.br
+Each question tag is contained in just one line, thus the delimeter is '\\n'.
+.br
+.br
+The tag is followed by the question text which may take up multiple lines.
+.br
+.br
+The text and choices are separeted by a line containing a '.'.
+.br
+.br
+Each answer choice may also occupy more than one line each. Each choice is separated by a line containing a '.'.
+.br
+.br
+A line containing a '##' separates the group of answer choices from the correct answer
+.br
+
+
+
+.Sh EXAMPLES
+5   // this is the last id assigned to a question
+.br
+2
+.br
+presidents, US history
+.br
+Who was the first person to sign the Declaration of Independence?
+.br
+.
+.br
+(a) Thomas Jefferson
+.br
+.
+.br
+(b) John Hancock
+.br
+.
+.br
+(c) Benjamin Franklin
+.br
+.
+.br
+(d) George Washington
+.br
+.
+.br
+#
+.br
+b
+.br
+%%
+.br
+4
+.br
+presidents, US history
+.br
+Who said "I have not yet begun to fight!"?
+.br
+.
+.br
+(a) John Paul Jones
+.br
+.
+.br
+(b) George Washington 
+.br
+.
+.br
+(c) Paul Revere
+.br
+.
+.br
+(d) Patrick Henry
+.br
+.
+.br
+#
+.br
+a
+.br
+%%
+
+.Sh AUTHOR
+Nataly Carbonell

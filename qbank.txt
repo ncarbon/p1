@@ -1,0 +1,44 @@
+5
+2
+presidents, US history
+Who was the first person to sign the Declaration of Independence?
+.
+(a) Thomas Jefferson
+.
+(b) John Hancock
+.
+(c) Benjamin Franklin
+.
+(d) George Washington
+.
+#
+b
+%%
+4
+presidents, US history
+Who said "I have not yet begun to fight!"?
+.
+(a) John Paul Jones
+.
+(b) George Washington 
+.
+(c) Paul Revere
+.
+(d) Patrick Henry
+.
+#
+a
+%%
+5
+presidents, US history
+The first national capitol was located in what city?
+.
+(a) Philadelphia
+.
+(b) Boston
+.
+(c) New York
+.
+#
+c
+%%

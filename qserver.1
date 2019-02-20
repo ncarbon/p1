@@ -1,0 +1,127 @@
+.Dd 2/18/19               \" DATE
+.Dt qserver-qclient 1      \" Program name and manual section number
+.Os Linux
+.Sh NAME                 \" Section Header - required - don't modify
+.Nm qserver, qclient
+.\" The following lines are read in generating the apropos(man -k) database. Use only key
+.\" words here as the database is built based on the words here and in the .ND line.
+.Sh SYNOPSIS             \" Section Header - required - don't modify
+.Nm 
+- A server and client that supports the storage and retrieval of multiple choice questions.
+.br
+.br
+qserver [no arguments]
+.br
+qclient
+.Ar port  hostname   
+.Sh DESCRIPTION          \" Section Header - required - don't modify
+The server qserver along with the client qclient is designed for supporting the 
+persistent storage and retrieval of multiple choice questions. The server allows multiple
+sequential client connections and uses TCP/IP for communicating with the client.
+qclient provides the user interface for storing questions, retrieving questions, and deleting questions 
+on the server, qserver. 
+.br
+.br
+To run the server, run make all. Then qserver with no arguments. The port and
+hostname will be displayed. Use this information to connect the qclient with the qserver.
+
+
+.Sh OPTIONS               \" File used or created by the topic of the man page
+The client program will accept the following commands on a command line with the prompt “> ” (note
+the space after the “>” symbol):
+.Bl -tag -width -indent  \" Begins a tagged list
+.It p            
+ put a question in the bank. p is followed by the question fields 
+.It d <n>
+ delete a question from the bank – delete question number <n> from the bank.
+.It g <n>
+ get question number <n> from the bank.
+.It r
+ get a random question from the bank. Input an answer in the next line.
+.It c <n> <x> 
+check answer <x> to question <n> in the bank
+.It k
+kill server
+.It q
+terminate client
+.It h
+display brief instructions on these commands
+.El
+.Sh EXAMPLES
+A '>' indicates a prompt by the client
+.br
+.br
+Put a question 
+.br
+> p
+.br
+presidents, US history  
+.br
+Which is the first president of the USA  
+.br
+\&.
+.br
+(a) Thomas Jefferson 
+.br
+\&. 
+.br
+(b) Abraham Lincoln
+.br
+\&.
+.br
+(c) George Washington
+.br
+\&.
+.br
+(d) Benjamin Franklin
+.br
+\&.
+.br
+\&.
+.br
+c 
+.br
+23 // question number assigned by server (returned)
+.br
+
+deleting a question
+.br
+> d 2 
+.br
+Successfully Deleted question 2 
+.br
+.br
+checking an answer
+.br
+> c 23 a
+.br
+Incorrect
+.br
+> c 23 c
+.br
+Correct
+.br
+>
+.br
+.br
+Getting a random question
+.br
+> r
+.br
+2
+.br
+presidents, US history
+.br
+Who was the first person to sign the Declaration of Independence?
+.br
+(a) Thomas Jefferson
+.br
+(b) John Hancock
+.br
+(c) Benjamin Franklin
+.br
+(d) George Washington
+.br
+* The client will prompt the user to enter an answer then display either "correct" or "incorrect".
+.Sh AUTHOR
+Nataly Carbonell
